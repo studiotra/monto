@@ -347,6 +347,7 @@ button, input { font-family: inherit; }
   font-weight: 560;
 }
 .explore-copy p { color: var(--ink-soft); margin: 0 0 18px; }
+.explore[hidden] { display: none; }
 .place-body { padding: 22px 24px 24px; }
 .place-body .time {
   display: inline-block;

@@ -103,16 +103,27 @@ function renderChrome(active) {
 function setupFilters() {
   const buttons = document.querySelectorAll("[data-filter]");
   const items = document.querySelectorAll("[data-city]");
+  const extras = document.querySelectorAll("[data-city-only]");
   if (!buttons.length) return;
+
+  function applyFilter(filter) {
+    items.forEach((el) => {
+      el.hidden = filter !== "all" && el.dataset.city !== filter;
+    });
+    extras.forEach((el) => {
+      el.hidden = el.dataset.cityOnly !== filter;
+    });
+  }
+
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
       const filter = btn.dataset.filter;
       buttons.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
-      items.forEach((el) => {
-        el.hidden = filter !== "all" && el.dataset.city !== filter;
-      });
+      applyFilter(filter);
     });
   });
+
+  applyFilter("all");
 }
 
 function setupChecks() {
