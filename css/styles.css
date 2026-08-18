@@ -443,6 +443,20 @@ button, input { font-family: inherit; }
 .check-item input { margin-top: 6px; width: 18px; height: 18px; accent-color: var(--forest); }
 .check-item label { font-weight: 550; }
 .check-item p { margin: 4px 0 0; color: var(--ink-soft); font-size: 15px; }
+.check-group {
+  padding: 12px 0 4px;
+  border-bottom: 1px solid var(--line);
+}
+.check-group > .group-title {
+  font-weight: 550;
+  margin: 0 0 4px;
+}
+.check-item.sub {
+  margin-left: 28px;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--line);
+}
+.check-item.sub:last-child { border-bottom: 0; }
 
 .step {
   display: grid;
